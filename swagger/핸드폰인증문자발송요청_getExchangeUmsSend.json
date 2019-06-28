@@ -1,0 +1,196 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "UNOAPI Swagger Spec. JSON",
+    "version" : "1.0.0",
+    "title" : "UNOAPI"
+  },
+  "host" : "192.168.70.55:8080",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "api-list",
+    "description" : "List of APIs"
+  } ],
+  "paths" : {
+    "/oai/wb/v1/exchange/getExchangeUmsSend" : {
+      "post" : {
+        "tags" : [ "api-list" ],
+        "summary" : "핸드폰 인증문자 발송요청",
+        "operationId" : "_oai_wb_v1_exchange_getExchangeUmsSend",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "appkey",
+          "in" : "header",
+          "description" : "제휴사키",
+          "required" : false
+        }, {
+          "in" : "body",
+          "name" : "REQUEST",
+          "description" : "request body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeUmsSend_REQUEST_qhw6j1tue88o"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "BAD_REQUEST"
+          },
+          "404" : {
+            "description" : "NOT_FOUND"
+          },
+          "405" : {
+            "description" : "METHOD_NOT_ALLOWED"
+          },
+          "500" : {
+            "description" : "INTERNAL_SERVER_ERROR"
+          },
+          "503" : {
+            "description" : "SERVICE_UNAVAILABLE"
+          },
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeUmsSend_RESPONSE_sksv6c45sg1k"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "_oai_wb_v1_exchange_getExchangeUmsSend_REQUEST_qhw6j1tue88o" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeUmsSend_dataHeader_1jy891effba5y"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeUmsSend_dataBody_vbhd3i77x750"
+        }
+      }
+    },
+    "_oai_wb_v1_exchange_getExchangeUmsSend_dataHeader_1jy891effba5y" : {
+      "type" : "object",
+      "properties" : {
+        "UTZPE_CNCT_IPAD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속IP주소"
+        },
+        "UTZPE_CNCT_MCHR_UNQ_ID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기고유ID"
+        },
+        "UTZPE_CNCT_TEL_NO_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속전화번호"
+        },
+        "UTZPE_CNCT_MCHR_IDF_SRNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기식별일련번호"
+        },
+        "UTZ_MCHR_OS_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계구분코드"
+        },
+        "UTZ_MCHR_OS_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계버전명"
+        },
+        "UTZ_MCHR_MDL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기모델명"
+        },
+        "UTZ_MCHR_APP_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "앱 버전"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeUmsSend_dataBody_vbhd3i77x750" : {
+      "type" : "object",
+      "required" : [ "BRDT", "COMC_DIS", "FNM", "HP_NO", "SEX", "SMSD_YN" ],
+      "properties" : {
+        "COMC_DIS" : {
+          "type" : "string",
+          "example" : "1",
+          "description" : "통신사구분"
+        },
+        "HP_NO" : {
+          "type" : "string",
+          "example" : "01039433963",
+          "description" : "핸드폰번호"
+        },
+        "BRDT" : {
+          "type" : "string",
+          "example" : "830320",
+          "description" : "생년월일"
+        },
+        "SEX" : {
+          "type" : "string",
+          "example" : "1",
+          "description" : "성별"
+        },
+        "FNM" : {
+          "type" : "string",
+          "example" : "김순덕",
+          "description" : "성명"
+        },
+        "SMSD_YN" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "SMS발송여부"
+        },
+        "SMS_MSG" : {
+          "type" : "string",
+          "example" : "성공적으로 접속했습니다.",
+          "description" : "SMS메시지"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeUmsSend_RESPONSE_sksv6c45sg1k" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeUmsSend_dataHeader_1jyjbr8sf83zt"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeUmsSend_dataBody_1ib98khh3vos1"
+        }
+      }
+    },
+    "_oai_wb_v1_exchange_getExchangeUmsSend_dataHeader_1jyjbr8sf83zt" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeUmsSend_dataBody_1ib98khh3vos1" : {
+      "type" : "object",
+      "required" : [ "CRTF_UNQ_NO" ],
+      "properties" : {
+        "CRTF_UNQ_NO" : {
+          "type" : "string",
+          "example" : "121122",
+          "description" : "인증고유번호"
+        }
+      },
+      "description" : "response data header"
+    }
+  }
+}
