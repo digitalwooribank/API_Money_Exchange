@@ -1,0 +1,346 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Wooribank API, Wooribank Swagger Spec. JSON",
+    "version" : "1.0.0",
+    "title" : "Wooribank API"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "List of APIs",
+    "description" : ""
+  } ],
+  "paths" : {
+	"/oai/wb/v1/exchange/getExchangeForeignRcveBr" : {
+      "post" : {
+        "tags" : [ "List of APIs" ],
+        "summary" : "외화 수령점 검색",
+        "operationId" : "_oai_wb_v1_exchange_getExchangeForeignRcveBr",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "appkey",
+          "in" : "header",
+          "description" : "제휴사키",
+		  "type" : "string",
+          "required" : false
+        }, {
+          "in" : "body",
+          "name" : "REQUEST",
+          "description" : "request body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_REQUEST_t4cs0x7ko8xd"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "BAD_REQUEST"
+          },
+          "404" : {
+            "description" : "NOT_FOUND"
+          },
+          "405" : {
+            "description" : "METHOD_NOT_ALLOWED"
+          },
+          "500" : {
+            "description" : "INTERNAL_SERVER_ERROR"
+          },
+          "503" : {
+            "description" : "SERVICE_UNAVAILABLE"
+          },
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_RESPONSE_1hbm2kwffihpx"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "definitions" : {
+	"_oai_wb_v1_exchange_getExchangeForeignRcveBr_REQUEST_t4cs0x7ko8xd" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataHeader_urundggarj90"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataBody_1h7qyadf7p455"
+        }
+      }
+    },
+    "_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataHeader_urundggarj90" : {
+      "type" : "object",
+      "properties" : {
+        "UTZPE_CNCT_IPAD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속IP주소"
+        },
+        "UTZPE_CNCT_MCHR_UNQ_ID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기고유ID"
+        },
+        "UTZPE_CNCT_TEL_NO_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속전화번호"
+        },
+        "UTZPE_CNCT_MCHR_IDF_SRNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기식별일련번호"
+        },
+        "UTZ_MCHR_OS_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계구분코드"
+        },
+        "UTZ_MCHR_OS_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계버전명"
+        },
+        "UTZ_MCHR_MDL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기모델명"
+        },
+        "UTZ_MCHR_APP_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "앱 버전"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataBody_1h7qyadf7p455" : {
+      "type" : "object",
+      "required" : [ "CRTF_UNQ_NO" ],
+      "properties" : {
+        "FXC_AFLC_MBH_NO" : {
+          "type" : "string",
+          "example" : "WOORI001",
+          "description" : "환전제휴사회원번호"
+        },
+		"INQ_DSCD" : {
+          "type" : "string",
+          "example" : "02",
+          "description" : "조회구분코드"
+        },
+		"SRCH_CHR_TXT" : {
+          "type" : "string",
+          "example" : "강서",
+          "description" : "검색문자내용"
+        },
+		"SRCH_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "검색번호"
+        },
+		"CUCD" : {
+          "type" : "string",
+          "example" : "USD",
+          "description" : "통화코드"
+        },
+		"RCVE_DT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수령일자"
+        },
+		"NXT_KEY" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "다음키"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeForeignRcveBr_RESPONSE_1hbm2kwffihpx" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataHeader_qhsukb0r10f9"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataBody_sl6q1kxj3ntu"
+        }
+      }
+    },
+    "_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataHeader_qhsukb0r10f9" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeForeignRcveBr_dataBody_sl6q1kxj3ntu" : {
+      "type" : "object",
+      "required" : [ "CRTF_UNQ_NO" ],
+      "properties" : {
+        "SRCH_CHR_TXT" : {
+          "type" : "string",
+          "example" : "강서",
+          "description" : "검색문자내용"
+        },
+		"CUCD" : {
+          "type" : "string",
+          "example" : "USD",
+          "description" : "통화코드"
+        },
+		"INQ_CNT" : {
+          "type" : "string",
+          "example" : "1",
+          "description" : "조회건수"
+        },
+		"GRID" : {
+			  "description" : "통화리스트",
+			  "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_GRID_1k25227nk2zxe"
+		}
+      },
+      "description" : "response data header"
+    },
+	"_oai_wb_v1_exchange_getExchangeForeignRcveBr_GRID_1k25227nk2zxe" : {
+		  "type" : "array",
+		  "description" : "지점리스트",
+		  "items" : {
+			"description" : "지점리스트",
+			"$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeForeignRcveBr_GRID_t86x3b23zyw2"
+		}
+	},
+	"_oai_wb_v1_exchange_getExchangeForeignRcveBr_GRID_t86x3b23zyw2" : {
+		  "type" : "object",
+		  "properties" : {
+			"BRCD" : {
+			  "type" : "string",
+			  "example" : "020069",
+			  "description" : "점코드"
+			},
+			"KRBR_NM" : {
+			  "type" : "string",
+			  "example" : "화곡동금융센터",
+			  "description" : "한글점명"
+			},
+			"ENBR_NM" : {
+			  "type" : "string",
+			  "example" : "HWAGOK DONG BR.",
+			  "description" : "영문점명"
+			},
+			"KRBR_ABRV_NM" : {
+			  "type" : "string",
+			  "example" : "화곡동",
+			  "description" : "한글점약어명"
+			},
+			"BZBR_RPRS_TEL_NO" : {
+			  "type" : "string",
+			  "example" : "02-0000-0000",
+			  "description" : "영업점대표전화번호"
+			},
+			"HLDY_BZ_YN" : {
+			  "type" : "string",
+			  "example" : "N",
+			  "description" : "휴일영업여부"
+			},
+			"AIRT_YN" : {
+			  "type" : "string",
+			  "example" : "N",
+			  "description" : "공함점여부"
+			},
+			"TDY_RCVE_AVL_YN" : {
+			  "type" : "string",
+			  "example" : "N",
+			  "description" : "당일수령가능여부"
+			},
+			"DL_CUR_TXT" : {
+			  "type" : "string",
+			  "example" : "******",
+			  "description" : "취급통화내용"
+			},
+			"ADDN_NO" : {
+			  "type" : "string",
+			  "example" : "1150054000",
+			  "description" : "행정동번호"
+			},
+			"ADNN_SIDO_NO" : {
+			  "type" : "string",
+			  "example" : "1100000000",
+			  "description" : "행정시도번호"
+			},
+			"ADNN_GRUP_OLD_NO" : {
+			  "type" : "string",
+			  "example" : "1150000000",
+			  "description" : "행정군구번호"
+			},
+			"STDO_NO" : {
+			  "type" : "string",
+			  "example" : "1150010300",
+			  "description" : "법정동번호"
+			},
+			"OLD_ZPCD" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "구우편번호코드"
+			},
+			"ZPNO" : {
+			  "type" : "string",
+			  "example" : "07765",
+			  "description" : "우편번호"
+			},
+			"BLD_MNG_NO" : {
+			  "type" : "string",
+			  "example" : "1150010300103700103014166",
+			  "description" : "건물관리번호"
+			},
+			"RDNM_NO" : {
+			  "type" : "string",
+			  "example" : "115004145005",
+			  "description" : "도로명번호"
+			},
+			"KORL_RDNM" : {
+			  "type" : "string",
+			  "example" : "가로공원로76길",
+			  "description" : "한글도로명"
+			},
+			"KORL_RDNM_ADR" : {
+			  "type" : "string",
+			  "example" : "서울 강서구 가로공원로98길 55",
+			  "description" : "한글도로명주소"
+			},
+			"ENG_ROAD_NM" : {
+			  "type" : "string",
+			  "example" : "Garogongwon-ro 76-gil",
+			  "description" : "영문도로명"
+			},
+			"ENG_RDNM_ADR" : {
+			  "type" : "string",
+			  "example" : "13 Garogongwon-ro 17-gil Gangseo-gu Seoul",
+			  "description" : "영문도로명주소"
+			},
+			"KORL_RMND_ADR" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "한글나머지주소"
+			},
+			"BLD_XCR" : {
+			  "type" : "number",
+			  "example" : "126.83811636290",
+			  "description" : "건물X좌표"
+			},
+			"BLC_YVR" : {
+			  "type" : "number",
+			  "example" : "37.53465133230",
+			  "description" : "건물Y좌표"
+			}
+		  },
+		  "description" : "거래내역리스트"
+    }
+  }
+}
