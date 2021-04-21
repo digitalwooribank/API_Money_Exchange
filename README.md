@@ -1,7 +1,7 @@
 # API_Money_Exchange (환전신청 API서비스)
 
 
-_2019년 06월 25일 (Ver 1.0) update for Wooribank API_
+_2021년 4월 21일 (Ver 0.3) update for Wooribank API_Hackathon
 
 > 환전신청 API서비스 관련 설명서
 
@@ -15,7 +15,7 @@ _2019년 06월 25일 (Ver 1.0) update for Wooribank API_
 
 ##### 1.2 환전신청 API 흐름도
 
-![alt text](exchange.png)
+![image](https://user-images.githubusercontent.com/51771396/115506980-796f0a80-a2b6-11eb-91f2-2cb04c123728.png)
 
 
 
@@ -24,28 +24,22 @@ _2019년 06월 25일 (Ver 1.0) update for Wooribank API_
 
 ----------
 
-##### 2.1 계좌 조회 HTTP Request
+##### 2.1 환전시원화금액조회 HTTP Request
 
 ```
-GET /oai/wb/v1/finance/getIndivAllAccInfo
+POST /oai/wb/v1/exchange/getExchangeAmount
 ```
 
 ##### 2.2 Response Example 
 
 ```json
 {
-	"dataHeader": {
-		
-	},
-	"dataBody": {
-		"GRID_CNT": 2,
-		"GRID": [{
-
-		},
-		{
-
-		}]
-	}
+  "dataHeader": {},
+  "dataBody": {
+    "CUCD": "USD",
+    "APXRT": "1158.55",
+    "PXRT": "050"
+  }
 }
 ```
 
@@ -54,7 +48,7 @@ GET /oai/wb/v1/finance/getIndivAllAccInfo
 
 ----------
 
-우리은행 오픈API 연동 방식은 REST(Representational State Transfer) 방식에 따라 구현한다. HTTP Method 및 리소스에 대한 URL에 따라 Request와 Response 데이터 타입은 JSOM을 사용한다.
+우리은행 오픈API 연동 방식은 REST(Representational State Transfer) 방식에 따라 구현한다. HTTP Method 및 리소스에 대한 URL에 따라 Request와 Response 데이터 타입은 JSON을 사용한다.
 또한 HTTP 1.1 Spec 규격을 따른다.
 
 ##### 3.1 Resource URL
@@ -98,6 +92,7 @@ GET /oap/wb/v2/oauth/tokencheck HTTP/1.1
 Content-Type: Applicatin/x-www-form-urlencoded
 appKey: <APP Key>
 Authorization: Bearer <Access Token>
+hashVAL: <JSON Data Hash Value>
 …
 ```
 
