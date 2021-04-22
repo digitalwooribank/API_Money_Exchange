@@ -1,0 +1,232 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Wooribank API, Wooribank Swagger Spec. JSON",
+    "version" : "1.0.0",
+    "title" : "Wooribank API"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "List of APIs",
+    "description" : ""
+  } ],
+  "paths" : {
+    "/oai/wb/v1/exchange/getExchangeInfoList" : {
+      "post" : {
+        "tags" : [ "List of APIs" ],
+        "summary" : "통화별 환율 목록 조회",
+        "operationId" : "_oai_wb_v1_exchange_getExchangeInfoList",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "appkey",
+          "in" : "header",
+          "description" : "제휴사키",
+		  "type" : "string",
+          "required" : false
+        }, {
+          "in" : "body",
+          "name" : "REQUEST",
+          "description" : "request body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_REQUEST_qhw6j1tue88o"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "BAD_REQUEST"
+          },
+          "404" : {
+            "description" : "NOT_FOUND"
+          },
+          "405" : {
+            "description" : "METHOD_NOT_ALLOWED"
+          },
+          "500" : {
+            "description" : "INTERNAL_SERVER_ERROR"
+          },
+          "503" : {
+            "description" : "SERVICE_UNAVAILABLE"
+          },
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_RESPONSE_sksv6c45sg1k"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "_oai_wb_v1_exchange_getExchangeInfoList_REQUEST_qhw6j1tue88o" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_dataHeader_1jy891effba5y"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_dataBody_vbhd3i77x750"
+        }
+      }
+    },
+    "_oai_wb_v1_exchange_getExchangeInfoList_dataHeader_1jy891effba5y" : {
+      "type" : "object",
+      "properties" : {
+        "UTZPE_CNCT_IPAD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속IP주소"
+        },
+        "UTZPE_CNCT_MCHR_UNQ_ID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기고유ID"
+        },
+        "UTZPE_CNCT_TEL_NO_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속전화번호"
+        },
+        "UTZPE_CNCT_MCHR_IDF_SRNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기식별일련번호"
+        },
+        "UTZ_MCHR_OS_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계구분코드"
+        },
+        "UTZ_MCHR_OS_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계버전명"
+        },
+        "UTZ_MCHR_MDL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기모델명"
+        },
+        "UTZ_MCHR_APP_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "앱 버전"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeInfoList_dataBody_vbhd3i77x750" : {
+      "type" : "object",
+      "required" : [ "BRDT", "COMC_DIS", "FNM", "HP_NO", "SEX", "SMSD_YN" ],
+      "properties" : {
+        "FXC_AFLC_MBH_NO" : {
+          "type" : "string",
+          "example" : "WOORI001",
+          "description" : "회원번호"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeInfoList_RESPONSE_sksv6c45sg1k" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_dataHeader_1jyjbr8sf83zt"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_dataBody_1ib98khh3vos1"
+        }
+      }
+    },
+    "_oai_wb_v1_exchange_getExchangeInfoList_dataHeader_1jyjbr8sf83zt" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_exchange_getExchangeInfoList_dataBody_1ib98khh3vos1" : {
+      "type" : "object",
+      "required" : [ "CRTF_UNQ_NO" ],
+      "properties" : {
+        "PBLS_SQ_APL_DTM" : {
+          "type" : "string",
+          "example" : "20210401091112",
+          "description" : "고시회차적용일시"
+        },
+		"PBLS_SQ" : {
+          "type" : "string",
+          "example" : "20210401091112",
+          "description" : "고시회차"
+        },
+		"INQ_CNT" : {
+          "type" : "string",
+          "example" : "16",
+          "description" : "조회건수"
+        },
+		"GRID" : {
+			  "description" : "통화리스트",
+			  "$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_GRID_1k25227nk2zxe"
+		}
+      },
+      "description" : "response data header"
+    },
+	"_oai_wb_v1_exchange_getExchangeInfoList_GRID_1k25227nk2zxe" : {
+		  "type" : "array",
+		  "description" : "통화리스트",
+		  "items" : {
+			"description" : "통화리스트",
+			"$ref" : "#/definitions/_oai_wb_v1_exchange_getExchangeInfoList_GRID_t86x3b23zyw2"
+		}
+	},
+	"_oai_wb_v1_exchange_getExchangeInfoList_GRID_t86x3b23zyw2" : {
+		  "type" : "object",
+		  "properties" : {
+			"CUCD" : {
+			  "type" : "string",
+			  "example" : "USD",
+			  "description" : "통화코드"
+			},
+			"CUR_UNIT_DSCD" : {
+			  "type" : "string",
+			  "example" : "o011",
+			  "description" : "통화단위구분코드"
+			},
+			"CSH_SELL_RT" : {
+			  "type" : "number",
+			  "example" : "1148.750",
+			  "description" : "현찰매도율"
+			},
+			"SB_BAS_RT" : {
+			  "type" : "number",
+			  "example" : "1129.000",
+			  "description" : "매매기준율"
+			},
+			"CUS_PRME_RT" : {
+			  "type" : "number",
+			  "example" : "90",
+			  "description" : "고객우대율"
+			},
+			"CUS_PRME_XRT" : {
+			  "type" : "number",
+			  "example" : "1130.980",
+			  "description" : "고객우대환율"
+			},
+			"MIN_RQ_LMT" : {
+			  "type" : "number",
+			  "example" : "100",
+			  "description" : "최소신청한도"
+			}
+		  },
+		  "description" : "거래내역리스트"
+	  }
+	
+  }
+  
+}
